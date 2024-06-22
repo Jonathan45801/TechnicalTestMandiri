@@ -8,18 +8,18 @@ using System.Threading.Tasks;
 using User.Application.Interface.Repository;
 using User.Domain.Entities;
 
-namespace User.Application.UseCases.Login
+namespace User.Application.UseCases.Command.Login
 {
-    internal class LoginCommandHandler : IRequestHandler<LoginCommand,LoginDto>
+    internal class LoginCommandHandler : IRequestHandler<LoginCommand, LoginDto>
     {
         private readonly IUserLoginRepository _userLogin;
         private readonly IUserLoginTokenRepository _userLoginToken;
-        public LoginCommandHandler(IUserLoginRepository userLogin,IUserLoginTokenRepository userLoginToke) 
+        public LoginCommandHandler(IUserLoginRepository userLogin, IUserLoginTokenRepository userLoginToke)
         {
             _userLogin = userLogin;
             _userLoginToken = userLoginToke;
         }
-        public async Task<LoginDto> Handle(LoginCommand request,CancellationToken cancellationToken)
+        public async Task<LoginDto> Handle(LoginCommand request, CancellationToken cancellationToken)
         {
             var response = new LoginDto();
             var checkData = await _userLogin.CheckUserPassword(request.Data.userName!, request.Data.passWord!, cancellationToken);
@@ -38,7 +38,7 @@ namespace User.Application.UseCases.Login
                     Type = "Bearer",
                     ExpiresAt = DateTime.Now.AddHours(2)
                 };
-                await _userLoginToken.InsertAsync(token,cancellationToken);
+                await _userLoginToken.InsertAsync(token, cancellationToken);
                 response.Data = token.Adapt<LoginData>();
                 response.Success = true;
                 response.Message = "SUkses";

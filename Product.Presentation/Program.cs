@@ -1,4 +1,6 @@
-
+using Product.Application;
+using Product.Infrastructure;
+using Product.Persistence;
 namespace Product.Presentation
 {
     public class Program
@@ -11,11 +13,13 @@ namespace Product.Presentation
 
             builder.Services.AddControllers();
             // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
+            builder.Services.AddApplication().AddPersistence(builder.Configuration).AddInfrastructure();
+            builder.Services.AddMapping();
             builder.Services.AddEndpointsApiExplorer();
             builder.Services.AddSwaggerGen();
 
             var app = builder.Build();
-
+            app.UseAuthme();
             // Configure the HTTP request pipeline.
             if (app.Environment.IsDevelopment())
             {

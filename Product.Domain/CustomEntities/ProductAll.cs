@@ -11,7 +11,7 @@ namespace Product.Domain.CustomEntities
         public int Id { get; set; }
         public string? NamaProduct { get; set; }
         public string? DescriptionProduct { get; set; }
-        public string? Harga { get; set; }
+        public int Harga { get; set; }
 
     }
 }

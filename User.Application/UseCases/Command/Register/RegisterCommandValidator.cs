@@ -4,11 +4,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using FluentValidation;
-namespace User.Application.UseCases.Register
+namespace User.Application.UseCases.Command.Register
 {
     internal class RegisterCommandValidator : AbstractValidator<RegisterCommand>
     {
-        public RegisterCommandValidator() 
+        public RegisterCommandValidator()
         {
             RuleFor(x => x.Data.userName).NotEmpty().WithMessage("UserName Wajib Diisi");
             RuleFor(x => x.Data.passWord).NotEmpty().WithMessage("Password Wajib Diisi");

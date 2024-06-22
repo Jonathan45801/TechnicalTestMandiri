@@ -38,7 +38,7 @@ namespace Product.Persistence.Configuration
                 .HasColumnName("LastUpdatedTime");
 
             builder.Property(x => x.LastUpdatedBy)
-                .HasColumnName("LastUpdateBy");
+                .HasColumnName("LastUpdatedBy");
 
             builder.ToTable("ProductDetail");
         }

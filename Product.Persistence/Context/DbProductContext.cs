@@ -10,7 +10,7 @@ using System.Threading.Tasks;
 
 namespace Product.Persistence.Context
 {
-    public class DbProductContext : DbContext, IDbProduct
+    public class DbProductContext : DbContext, IDbProductContext
     {
         public DbProductContext(DbContextOptions<DbProductContext> options) : base(options)
         {
@@ -18,6 +18,7 @@ namespace Product.Persistence.Context
         }
         public DbSet<ProductHeader> Product { get; set; }
         public DbSet<ProductDetail> ProductDetail { get; set; }
+        public DbSet<ApiConfig> ApiConfig { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {

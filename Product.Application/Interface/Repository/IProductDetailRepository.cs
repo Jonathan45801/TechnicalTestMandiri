@@ -10,5 +10,8 @@ namespace Product.Application.Interface.Repository
     public interface IProductDetailRepository
     {
         Task<ProductDetail> Get(int productId,CancellationToken cancellationToken);
+        Task<int> InsertAsync(ProductDetail product, CancellationToken cancellationToken);
+        Task<int> UpdateAsync(ProductDetail product, CancellationToken cancellationToken);
+        Task<int> DeleteAsync(int productId, CancellationToken cancellationToken);
     }
 }

@@ -20,11 +20,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Model\" />
-    <Folder Include="UseCases\" />
-  </ItemGroup>
-
-  <ItemGroup>
     <ProjectReference Include="..\Product.Domain\Product.Domain.csproj" />
   </ItemGroup>
   

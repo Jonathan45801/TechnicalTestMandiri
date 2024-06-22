@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using FluentValidation;
-namespace User.Application.UseCases.Login
+namespace User.Application.UseCases.Command.Login
 {
     internal class LoginCommandValidator : AbstractValidator<LoginCommand>
     {

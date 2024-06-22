@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using User.Domain.CustomEntities;
 using User.Domain.Entities;
 
 namespace User.Application.Interface.Repository
@@ -13,7 +14,7 @@ namespace User.Application.Interface.Repository
         Task<bool> CheckUser(string userName,string passWord,CancellationToken cancellationToken);
         Task<bool> CheckUserDaftar(string userName, CancellationToken cancellationToken);
         Task<UserLogin> CheckUserPassword(string userName, string passWord, CancellationToken cancellationToken);
-
+        Task<UserToken> GetUser(string token,CancellationToken cancellationToken);
         string GenerateToken(CancellationToken cancellationToken);
     }
 }

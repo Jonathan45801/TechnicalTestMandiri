@@ -7,12 +7,12 @@ using System.Threading.Tasks;
 using User.Application.Interface.Repository;
 using User.Domain.Entities;
 
-namespace User.Application.UseCases.Register
+namespace User.Application.UseCases.Command.Register
 {
-    internal class RegisterCommandHandler : IRequestHandler<RegisterCommand,RegisterDto>
+    internal class RegisterCommandHandler : IRequestHandler<RegisterCommand, RegisterDto>
     {
         private readonly IUserLoginRepository _userLogin;
-        public RegisterCommandHandler(IUserLoginRepository userLogin) 
+        public RegisterCommandHandler(IUserLoginRepository userLogin)
         {
             _userLogin = userLogin;
         }
@@ -21,7 +21,7 @@ namespace User.Application.UseCases.Register
             try
             {
                 var checkData = await _userLogin.CheckUserDaftar(request.Data.userName!, cancellationToken);
-                if(checkData)
+                if (checkData)
                 {
                     return new RegisterDto()
                     {
@@ -39,7 +39,7 @@ namespace User.Application.UseCases.Register
                     Message = "Sukses"
                 };
             }
-            catch (Exception ex) 
+            catch (Exception ex)
             {
                 return new RegisterDto()
                 {

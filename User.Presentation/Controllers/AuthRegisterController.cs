@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
-using User.Application.UseCases.Register;
+using User.Application.UseCases.Command.Register;
+
 namespace User.Presentation.Controllers
 {
     [Route("/Auth/Register")]

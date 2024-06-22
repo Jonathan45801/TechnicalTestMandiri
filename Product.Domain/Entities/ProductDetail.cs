@@ -14,7 +14,7 @@ namespace Product.Domain.Entities
         public int TerJual { get; set; }
         public DateTime CreatedTime { get; set; } = DateTime.Now;
         public string? CreatedBy { get; set; }
-        public DateTime LastUpdatedTime { get; set; } = DateTime.Now;
+        public DateTime? LastUpdatedTime { get; set; }
         public string? LastUpdatedBy { get;set; }
         public virtual ProductHeader? Product { get; set; }
     }

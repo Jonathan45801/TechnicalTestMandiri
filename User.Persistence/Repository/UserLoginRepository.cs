@@ -1,4 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
+using StoredProcedureEFCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -6,6 +7,7 @@ using System.Text;
 using System.Threading.Tasks;
 using User.Application.Interface;
 using User.Application.Interface.Repository;
+using User.Domain.CustomEntities;
 using User.Domain.Entities;
 using User.Persistence.Misc;
 namespace User.Persistence.Repository
@@ -36,6 +38,15 @@ namespace User.Persistence.Repository
         public string GenerateToken(CancellationToken cancellationToken)
         {
             return DbUtils.GenerateAuthToken();
+        }
+
+        public async Task<UserToken> GetUser(string token, CancellationToken cancellationToken)
+        {
+            UserToken result = new UserToken();
+            await _context.loadStoredProcedureBuilder("GetUsername")
+                .AddParam("token", token)
+                .ExecAsync(async x => result = await x.FirstOrDefaultAsync<UserToken>(cancellationToken));
+            return result;
         }
 
         public async Task<int> InsertAsync(string userName, string passWord, CancellationToken cancellationToken)

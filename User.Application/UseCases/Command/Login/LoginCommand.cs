@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace User.Application.UseCases.Login
+namespace User.Application.UseCases.Command.Login
 {
     public record LoginCommand(LoginCommandData Data) : IRequest<LoginDto>;
     public class LoginCommandData

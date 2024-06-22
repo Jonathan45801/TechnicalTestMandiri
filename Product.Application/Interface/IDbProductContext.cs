@@ -8,9 +8,10 @@ using System.Text;
 using System.Threading.Tasks;
 namespace Product.Application.Interface
 {
-    public interface IDbProduct: IDisposable
+    public interface IDbProductContext: IDisposable
     {
         DbSet<ProductHeader> Product { get; set; }
+        DbSet<ApiConfig> ApiConfig { get; set; }
         DbSet<ProductDetail>ProductDetail { get; set; }
         IStoredProcBuilder loadStoredProcedureBuilder(string val);
         Task<int> SaveChangesAsync(CancellationToken cancellationToken);

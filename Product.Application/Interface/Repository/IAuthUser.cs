@@ -1,4 +1,4 @@
-﻿using Product.Domain.CustomEntities;
+﻿using Product.Domain.Entities;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -7,8 +7,8 @@ using System.Threading.Tasks;
 
 namespace Product.Application.Interface.Repository
 {
-    public interface IProductRepository
+    public interface IAuthUser
     {
-        Task<ProductAll> Getdata(CancellationToken cancellationToken);
+        Task<User> GetUserByToken(string token);
     }
 }

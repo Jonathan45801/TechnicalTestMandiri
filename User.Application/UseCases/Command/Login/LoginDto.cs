@@ -8,7 +8,7 @@ using User.Application.Misc;
 using User.Application.Model.Query;
 using User.Domain.Entities;
 
-namespace User.Application.UseCases.Login
+namespace User.Application.UseCases.Command.Login
 {
     public record LoginDto : BaseDto
     {

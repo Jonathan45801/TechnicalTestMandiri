@@ -20,7 +20,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Interface\Repository\" />
     <Folder Include="Model\" />
     <Folder Include="UseCases\" />
   </ItemGroup>
